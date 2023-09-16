@@ -28,10 +28,11 @@ describe('Get Question By Slug', () => {
       slug: 'example-question'
     });
 
-    if (result.isRight()) {
-      expect(result.value?.question.id).toBeTruthy();
-      expect(result.value?.question.title).toEqual(newQuestion.title);
-    }
+    expect(result.value).toMatchObject({
+      question: expect.objectContaining({
+        title: newQuestion.title,
+      })
+    });
   });
 });
 

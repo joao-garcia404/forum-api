@@ -1,22 +1,29 @@
-import { InMemoryQuestionsRepository } from 'test/repositories/in-memory-questions-repository';
+import { UniqueEntityID } from '@/core/entities/unique-entity-id';
 
- import { InMemoryAnswersRepository } from 'test/repositories/in-memory-answers-repository';
+import { ChooseQuestionBestAnswerUseCase } from './choose-question-best-answer';
+
+import { InMemoryQuestionsRepository } from 'test/repositories/in-memory-questions-repository';
+import { InMemoryAnswersRepository } from 'test/repositories/in-memory-answers-repository';
+import { InMemoryAnswerAttachmentRepository } from 'test/repositories/in-memory-answer-attachments-repository';
+import { InMemoryQuestionAttachmentRepository } from 'test/repositories/in-memory-question-attachments-repository';
 
 import { makeAnswer } from 'test/factories/make-answer';
 
-import { UniqueEntityID } from '@/core/entities/unique-entity-id';
-import { ChooseQuestionBestAnswerUseCase } from './choose-question-best-answer';
 import { makeQuestion } from 'test/factories/make-question';
 import { NotAllowedError } from './errors/not-allowed-error';
 
 let inMemoryQuestionsRepository: InMemoryQuestionsRepository;
 let inMemoryAnswersRepository: InMemoryAnswersRepository;
+let inMemoryAnswerAttachmentsRepository: InMemoryAnswerAttachmentRepository;
+let inMemoryQuestionAttachmentsRepository: InMemoryQuestionAttachmentRepository;
 let sut: ChooseQuestionBestAnswerUseCase;
 
 describe('Choose Question best Answer ', () => {
   beforeEach(() => {
-    inMemoryQuestionsRepository = new InMemoryQuestionsRepository();
-    inMemoryAnswersRepository = new InMemoryAnswersRepository();
+    inMemoryAnswerAttachmentsRepository = new InMemoryAnswerAttachmentRepository();
+    inMemoryQuestionAttachmentsRepository = new InMemoryQuestionAttachmentRepository();
+    inMemoryQuestionsRepository = new InMemoryQuestionsRepository(inMemoryQuestionAttachmentsRepository);
+    inMemoryAnswersRepository = new InMemoryAnswersRepository(inMemoryAnswerAttachmentsRepository);
     sut = new ChooseQuestionBestAnswerUseCase(
       inMemoryQuestionsRepository,
       inMemoryAnswersRepository
