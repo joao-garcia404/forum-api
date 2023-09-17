@@ -33,6 +33,6 @@ export class SendNotificationUseCase {
 
     return right({
       notification,
-    })
+    });
   };
 }

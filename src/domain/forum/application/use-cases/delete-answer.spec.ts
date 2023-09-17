@@ -8,7 +8,7 @@ import { InMemoryAnswerAttachmentRepository } from 'test/repositories/in-memory-
 import { makeAnswer } from 'test/factories/make-answer';
 import { makeAnswerAttachment } from 'test/factories/make-answer-attachment';
 
-import { NotAllowedError } from './errors/not-allowed-error';
+import { NotAllowedError } from '@/core/errors/not-allowed-error';
 
 let inMemoryAnswersRepository: InMemoryAnswersRepository;
 let inMemoryAnswerAttachmentsRepository: InMemoryAnswerAttachmentRepository;
@@ -73,6 +73,6 @@ describe('Delete Answer', () => {
 
     expect(result.isLeft()).toBe(true);
     expect(result.value).toBeInstanceOf(NotAllowedError);
-  })
+  });
 });
 

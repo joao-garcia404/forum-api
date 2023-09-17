@@ -6,7 +6,7 @@ import { InMemoryQuestionAttachmentRepository } from 'test/repositories/in-memor
 import { InMemoryQuestionsRepository } from 'test/repositories/in-memory-questions-repository';
 import { makeQuestion } from 'test/factories/make-question';
 
-import { NotAllowedError } from './errors/not-allowed-error';
+import { NotAllowedError } from '@/core/errors/not-allowed-error';
 import { makeQuestionAttachment } from 'test/factories/make-question-attachment';
 
 let inMemoryQuestionsRepository: InMemoryQuestionsRepository;

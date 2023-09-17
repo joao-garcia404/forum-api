@@ -10,7 +10,7 @@ import { InMemoryQuestionAttachmentRepository } from 'test/repositories/in-memor
 import { makeAnswer } from 'test/factories/make-answer';
 
 import { makeQuestion } from 'test/factories/make-question';
-import { NotAllowedError } from './errors/not-allowed-error';
+import { NotAllowedError } from '@/core/errors/not-allowed-error';
 
 let inMemoryQuestionsRepository: InMemoryQuestionsRepository;
 let inMemoryAnswersRepository: InMemoryAnswersRepository;
