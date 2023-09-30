@@ -1,17 +1,17 @@
-import { Either, right } from "@/core/either";
-import { UniqueEntityID } from "@/core/entities/unique-entity-id";
+import { Either, right } from '@/core/either';
+import { UniqueEntityID } from '@/core/entities/unique-entity-id';
 
-import { Notification } from "../../enterprise/entities/notification";
+import { Notification } from '../../enterprise/entities/notification';
 
-import { NotificationsRepository } from "../repositories/notifications-repository";
+import { NotificationsRepository } from '../repositories/notifications-repository';
 
-type SendNotificationUseCaseRequest = {
+export type SendNotificationUseCaseRequest = {
   recipientId: string;
   title: string;
   content: string;
 }
 
-type SendNotificationUseCaseResponse = Either<null, { notification: Notification }>
+export type SendNotificationUseCaseResponse = Either<null, { notification: Notification }>
 
 export class SendNotificationUseCase {
   constructor(
@@ -34,5 +34,5 @@ export class SendNotificationUseCase {
     return right({
       notification,
     });
-  };
+  }
 }

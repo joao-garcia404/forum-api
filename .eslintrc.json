@@ -21,6 +21,6 @@
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "single"],
     "semi": ["error", "always"],
-    "@typescript-eslint/adjacent-overload-signatures": "off",
+    "@typescript-eslint/adjacent-overload-signatures": "off"
   }
 }
