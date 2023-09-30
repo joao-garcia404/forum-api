@@ -61,7 +61,7 @@ export class EditQuestionUseCase {
       return QuestionAttachment.create({
         attachmentId: new UniqueEntityID(attachmentId),
         questionId: question.id,
-      })
+      });
     }));
 
     questionAttachmentList.update(questionAttachments);

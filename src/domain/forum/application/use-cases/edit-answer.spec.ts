@@ -11,7 +11,7 @@ import { makeAnswerAttachment } from 'test/factories/make-answer-attachment';
 import { NotAllowedError } from '@/core/errors/not-allowed-error';
 
 let inMemoryAnswersRepository: InMemoryAnswersRepository;
-let inMemoryAnswerAttachmentsRepository: InMemoryAnswerAttachmentRepository
+let inMemoryAnswerAttachmentsRepository: InMemoryAnswerAttachmentRepository;
 let sut: EditAnswerUseCase;
 
 describe('Edit Answer', () => {
@@ -37,7 +37,7 @@ describe('Edit Answer', () => {
         answerId: newAnswer.id,
         attachmentId: new UniqueEntityID('attachment-2'),
       }),
-    )
+    );
 
     await sut.execute({
       answerId: newAnswer.id.toString(),
@@ -73,10 +73,10 @@ describe('Edit Answer', () => {
       authorId: 'author-2',
       content: 'Test content',
       attachmentsIds: []
-    })
+    });
 
     expect(result.isLeft()).toBe(true);
     expect(result.value).toBeInstanceOf(NotAllowedError);
-  })
+  });
 });
 

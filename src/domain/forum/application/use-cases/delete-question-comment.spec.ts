@@ -26,9 +26,9 @@ describe('Delete Question Comment', () => {
     await sut.execute({
       authorId: questionComment.authorId.toString(),
       questionCommentId: questionComment.id.toString(),
-    })
+    });
 
-    expect(inMemoryQuestionCommentsRepository.items).toHaveLength(0)
+    expect(inMemoryQuestionCommentsRepository.items).toHaveLength(0);
   });
 
   it('should not be able to delete another user question comment', async () => {
@@ -41,9 +41,9 @@ describe('Delete Question Comment', () => {
     const result = await sut.execute({
       authorId: 'author-2',
       questionCommentId: questionComment.id.toString(),
-    })
+    });
 
     expect(result.isLeft()).toBe(true);
     expect(result.value).toBeInstanceOf(NotAllowedError);
   });
-})
+});

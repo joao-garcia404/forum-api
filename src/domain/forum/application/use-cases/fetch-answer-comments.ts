@@ -22,7 +22,7 @@ export class FetchAnswerCommentsUseCase {
     const answerComments =
       await this.answerCommentsRepository.findManyByAnswerId(answerId, {
         page,
-      })
+      });
 
     return right({
       answerComments,

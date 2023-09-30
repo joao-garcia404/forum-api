@@ -36,7 +36,7 @@ describe('Delete Question', () => {
         questionId: newQuestion.id,
         attachmentId: new UniqueEntityID('attachment-2'),
       }),
-    )
+    );
 
     await sut.execute({
       questionId: 'question-1',
@@ -54,13 +54,13 @@ describe('Delete Question', () => {
 
     await inMemoryQuestionsRepository.create(newQuestion);
 
-   const result = await sut.execute({
-    questionId: 'question-1',
-    authorId: 'author-2',
-  })
+    const result = await sut.execute({
+      questionId: 'question-1',
+      authorId: 'author-2',
+    });
 
     expect(result.isLeft()).toBe(true);
     expect(result.value).toBeInstanceOf(NotAllowedError);
-  })
+  });
 });
 

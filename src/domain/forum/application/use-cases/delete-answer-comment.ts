@@ -31,11 +31,11 @@ export class DeleteAnswerCommentUseCase {
     }
 
     if (answerComment.authorId.toString() !== authorId) {
-      return left(new NotAllowedError())
+      return left(new NotAllowedError());
     }
 
-    await this.answersCommentsRepository.delete(answerComment)
+    await this.answersCommentsRepository.delete(answerComment);
 
-    return right({})
+    return right({});
   }
 }

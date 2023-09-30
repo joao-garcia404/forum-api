@@ -48,7 +48,7 @@ describe('Delete Answer', () => {
         answerId: newAnswer.id,
         attachmentId: new UniqueEntityID('attachment-2'),
       }),
-    )
+    );
 
     await sut.execute({
       answerId: 'answer-1',
@@ -69,7 +69,7 @@ describe('Delete Answer', () => {
     const result = await sut.execute({
       answerId: 'answer-1',
       authorId: 'author-2',
-    })
+    });
 
     expect(result.isLeft()).toBe(true);
     expect(result.value).toBeInstanceOf(NotAllowedError);

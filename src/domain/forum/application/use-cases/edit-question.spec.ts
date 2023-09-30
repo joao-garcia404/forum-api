@@ -40,7 +40,7 @@ describe('Edit Question', () => {
         questionId: newQuestion.id,
         attachmentId: new UniqueEntityID('attachment-2'),
       }),
-    )
+    );
 
     await sut.execute({
       questionId: newQuestion.id.toString(),
@@ -80,10 +80,10 @@ describe('Edit Question', () => {
       title: 'Test question',
       content: 'Test content',
       attachmentsIds: [],
-    })
+    });
 
     expect(result.isLeft()).toBe(true);
     expect(result.value).toBeInstanceOf(NotAllowedError);
-  })
+  });
 });
 

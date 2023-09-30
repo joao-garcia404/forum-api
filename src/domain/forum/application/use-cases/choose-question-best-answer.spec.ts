@@ -42,7 +42,7 @@ describe('Choose Question best Answer ', () => {
     await sut.execute({
       answerId: answer.id.toString(),
       authorId: question.authorId.toString(),
-    })
+    });
 
     expect(inMemoryQuestionsRepository.items[0].bestAnswerId).toEqual(answer.id);
   });
@@ -66,6 +66,6 @@ describe('Choose Question best Answer ', () => {
 
     expect(result.isLeft()).toBe(true);
     expect(result.value).toBeInstanceOf(NotAllowedError);
-  })
+  });
 });
 

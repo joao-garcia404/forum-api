@@ -44,7 +44,7 @@ export class CommentOnQuestionUseCase {
       content,
     });
 
-    await this.questionsCommentRepository.create(questionComment)
+    await this.questionsCommentRepository.create(questionComment);
 
     return right({
       questionComment,

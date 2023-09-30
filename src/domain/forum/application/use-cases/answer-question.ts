@@ -43,7 +43,7 @@ export class AnswerQuestionUseCase {
       return AnswerAttachment.create({
         attachmentId: new UniqueEntityID(attachmentId),
         answerId: answer.id,
-      })
+      });
     }));
 
     answer.attachments = new AnswerAttachmentList(answerAttachments);
@@ -52,6 +52,6 @@ export class AnswerQuestionUseCase {
 
     return right({
       answer,
-    })
+    });
   }
 }

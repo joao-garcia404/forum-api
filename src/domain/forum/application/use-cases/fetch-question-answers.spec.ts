@@ -21,13 +21,13 @@ describe('Fetch Question Answers', () => {
   it('should be able to fetch question answers', async () => {
     await inMemoryAnswersRepository.create(makeAnswer({
       questionId: new UniqueEntityID('question-1')
-    }))
+    }));
     await inMemoryAnswersRepository.create(makeAnswer({
       questionId: new UniqueEntityID('question-1')
-    }))
+    }));
     await inMemoryAnswersRepository.create(makeAnswer({
       questionId: new UniqueEntityID('question-1')
-    }))
+    }));
 
 
     const result = await sut.execute({
@@ -35,14 +35,14 @@ describe('Fetch Question Answers', () => {
       page: 1,
     });
 
-    expect(result.value?.answers).toHaveLength(3)
+    expect(result.value?.answers).toHaveLength(3);
   });
 
   it('should be able to fetch paginated recent questions', async () => {
     for (let i = 1; i <= 22; i++) {
       await inMemoryAnswersRepository.create(makeAnswer({
         questionId: new UniqueEntityID('question-1')
-      }))
+      }));
     }
 
     const result = await sut.execute({
@@ -50,7 +50,7 @@ describe('Fetch Question Answers', () => {
       page: 2,
     });
 
-    expect(result.value?.answers).toHaveLength(2)
+    expect(result.value?.answers).toHaveLength(2);
   });
 });
 

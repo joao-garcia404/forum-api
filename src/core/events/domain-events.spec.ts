@@ -1,13 +1,13 @@
-import { AggregateRoot } from "../entities/aggregate-root";
-import { UniqueEntityID } from "../entities/unique-entity-id";
-import { DomainEvent } from "./domain-event";
-import { DomainEvents } from "./domain-events";
+import { AggregateRoot } from '../entities/aggregate-root';
+import { UniqueEntityID } from '../entities/unique-entity-id';
+import { DomainEvent } from './domain-event';
+import { DomainEvents } from './domain-events';
 
 import { vi } from 'vitest';
 
 class CustomAggregateCreated implements DomainEvent {
   public ocurredAt: Date;
-  private aggregate: CustomAggregate
+  private aggregate: CustomAggregate;
 
   constructor(aggregate: CustomAggregate) {
     this.ocurredAt = new Date();
@@ -44,5 +44,5 @@ describe('domain events', () => {
     expect(callbackSpy).toHaveBeenCalled();
     expect(aggregate.domainEvents).toHaveLength(0);
   });
-})
+});
 

@@ -34,7 +34,7 @@ export class DeleteQuestionCommentUseCase {
       return left(new NotAllowedError());
     }
 
-    await this.questionsCommentRepository.delete(questionComment)
+    await this.questionsCommentRepository.delete(questionComment);
 
     return right({});
   }

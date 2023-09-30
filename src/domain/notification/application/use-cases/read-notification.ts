@@ -1,10 +1,10 @@
-import { Either, left, right } from "@/core/either";
-import { ResourceNotFoundError } from "@/core/errors/resource-not-found-error";
-import { NotAllowedError } from "@/core/errors/not-allowed-error";
+import { Either, left, right } from '@/core/either';
+import { ResourceNotFoundError } from '@/core/errors/resource-not-found-error';
+import { NotAllowedError } from '@/core/errors/not-allowed-error';
 
-import { Notification } from "../../enterprise/entities/notification";
+import { Notification } from '../../enterprise/entities/notification';
 
-import { NotificationsRepository } from "../repositories/notifications-repository";
+import { NotificationsRepository } from '../repositories/notifications-repository';
 
 type ReadNotificationUseCaseRequest = {
   recipientId: string;
@@ -42,5 +42,5 @@ export class ReadNotificationUseCase {
     return right({
       notification,
     });
-  };
+  }
 }

@@ -17,13 +17,13 @@ describe('Fetch Answer Comments', () => {
   it('should be able to fetch answer comments', async () => {
     await inMemoryAnswerCommentsRepository.create(makeAnswerComment({
       answerId: new UniqueEntityID('answer-1')
-    }))
+    }));
     await inMemoryAnswerCommentsRepository.create(makeAnswerComment({
       answerId: new UniqueEntityID('answer-1')
-    }))
+    }));
     await inMemoryAnswerCommentsRepository.create(makeAnswerComment({
       answerId: new UniqueEntityID('answer-1')
-    }))
+    }));
 
 
     const result = await sut.execute({
@@ -31,14 +31,14 @@ describe('Fetch Answer Comments', () => {
       page: 1,
     });
 
-    expect(result.value?.answerComments).toHaveLength(3)
+    expect(result.value?.answerComments).toHaveLength(3);
   });
 
   it('should be able to fetch paginated recent answer comments', async () => {
     for (let i = 1; i <= 22; i++) {
       await inMemoryAnswerCommentsRepository.create(makeAnswerComment({
         answerId: new UniqueEntityID('answer-1')
-      }))
+      }));
     }
 
     const result = await sut.execute({
@@ -46,7 +46,7 @@ describe('Fetch Answer Comments', () => {
       page: 2,
     });
 
-    expect(result.value?.answerComments).toHaveLength(2)
+    expect(result.value?.answerComments).toHaveLength(2);
   });
 });
 

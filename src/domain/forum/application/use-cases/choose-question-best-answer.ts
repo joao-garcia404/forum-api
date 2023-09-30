@@ -36,7 +36,7 @@ export class ChooseQuestionBestAnswerUseCase {
 
     const question = await this.questionsRepository.findById(
       answer.questionId.toString(),
-    )
+    );
 
     if (!question) {
       return left(new ResourceNotFoundError());
@@ -52,6 +52,6 @@ export class ChooseQuestionBestAnswerUseCase {
 
     return right({
       question,
-    })
+    });
   }
 }

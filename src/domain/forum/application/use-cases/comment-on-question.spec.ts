@@ -33,8 +33,8 @@ describe('Comment On Question', () => {
       questionId: question.id.toString(),
       authorId: question.id.toString(),
       content: 'Question comment test'
-    })
+    });
 
-    expect(inMemoryQuestionCommentsRepository.items[0].content).toEqual('Question comment test')
+    expect(inMemoryQuestionCommentsRepository.items[0].content).toEqual('Question comment test');
   });
-})
+});

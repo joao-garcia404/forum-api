@@ -25,9 +25,9 @@ describe('Delete Answer Comment', () => {
     await sut.execute({
       authorId: answerComment.authorId.toString(),
       answerCommentId: answerComment.id.toString(),
-    })
+    });
 
-    expect(inMemoryAnswerCommentsRepository.items).toHaveLength(0)
+    expect(inMemoryAnswerCommentsRepository.items).toHaveLength(0);
   });
 
   it('should not be able to delete another user answer comment', async () => {
@@ -37,12 +37,12 @@ describe('Delete Answer Comment', () => {
 
     await inMemoryAnswerCommentsRepository.create(answerComment);
 
-   const result = await sut.execute({
+    const result = await sut.execute({
       authorId: 'author-2',
       answerCommentId: answerComment.id.toString(),
-    })
+    });
 
     expect(result.isLeft()).toBe(true);
     expect(result.value).toBeInstanceOf(NotAllowedError);
   });
-})
+});

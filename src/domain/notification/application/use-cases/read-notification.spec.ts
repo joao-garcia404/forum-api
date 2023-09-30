@@ -39,7 +39,7 @@ describe('Read notification', () => {
     const result = await sut.execute({
       notificationId: notification.id.toString(),
       recipientId: 'recipient-2',
-    })
+    });
 
     expect(result.isLeft()).toBe(true);
     expect(result.value).toBeInstanceOf(NotAllowedError);

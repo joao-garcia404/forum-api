@@ -27,8 +27,6 @@ export class OnAnswerCreated implements EventHandler {
       answer.questionId.toString()
     );
 
-    console.log('QUESTIONNNN', question);
-
     if (question) {
       await this.sendNotification.execute({
         recipientId: question.authorId.toString(),

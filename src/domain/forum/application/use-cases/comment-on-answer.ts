@@ -43,7 +43,7 @@ export class CommentOnAnswerUseCase {
       content,
     });
 
-    await this.answerCommentsRepository.create(answerComment)
+    await this.answerCommentsRepository.create(answerComment);
 
     return right({
       answerComment,

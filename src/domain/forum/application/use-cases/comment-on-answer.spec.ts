@@ -31,8 +31,8 @@ describe('Comment On Answer', () => {
       answerId: answer.id.toString(),
       authorId: answer.id.toString(),
       content: 'Answer comment test'
-    })
+    });
 
-    expect(inMemoryAnswerCommentsRepository.items[0].content).toEqual('Answer comment test')
+    expect(inMemoryAnswerCommentsRepository.items[0].content).toEqual('Answer comment test');
   });
-})
+});
